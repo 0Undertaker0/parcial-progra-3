@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Clientes</title>
+    <style>
+           body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1{
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+      
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+
+
+        /* Estilos para el contenedor principal */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .container1 {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box; /* Asegura que el padding y el borde no aumenten el ancho total del contenedor */
+}
+
+/* Agrega un estilo de transición para un cambio suave en propiedades animadas */
+.container1:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Estilo alternativo para mejorar la legibilidad en fondos claros */
+.container1 p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Añade un estilo alternativo a los enlaces dentro del contenedor */
+.container1 a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.container1 a:hover {
+    color: #0056b3;
+}
+
+
+        table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Agrega bordes redondeados para un aspecto más moderno */
+    overflow: hidden; /* Evita que la sombra se extienda más allá del contenedor */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Añade un estilo alternativo a las filas para mejorar la legibilidad */
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* Agrega un efecto de transición a las filas al pasar el ratón sobre ellas */
+tr:hover {
+    background-color: #e0e0e0;
+    transition: background-color 0.3s ease;
+}
+
+
+        button {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #d32f2f;
+    }
+
+    .button-container {
+            display: inline-block; /* Esto hace que los divs se muestren en línea */
+            margin-right: 10px; /* Espacio entre los botones */
+        }
+       
+    input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        nav a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el ratón sobre los enlaces */
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 10px;
+    padding: 8px 12px; /* Añade un poco de relleno a los enlaces para mejorar la usabilidad */
+    border-radius: 5px; /* Agrega bordes redondeados para un aspecto más agradable */
+    transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+}
+
+        
+#formulario-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #busqueda {
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 18px;
+    width: 700px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#busqueda:focus {
+    outline: none;
+    border-color: #444;
+    box-shadow: 0 2px 8px #333;
+}
+
+::placeholder {
+    color: #aaa;
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>ACADEMICA SYSTEM</h1>
+        <h1>Gestión de Usuarios</h1>
+    </header>
+
+    <nav>
+        <a href="admin">Inicio 🏠</a>
+        <a href="usuarios">Usuarios 👤</a>
+        <a href="roles">Roles 🛠</a>
+        <a href="permisos">Permisos 🔐</a>
+        <a href="reportes">Reportes 📊</a>
+    </nav>
+
+    <center>
+        <div class="container">
+            <div class="button-container">
+                <button class="button1" onclick="mostrarFormulario()">Agregar Usuario</button>
+            </div>
+            <div class="button-container">
+                <button class="button1" onclick="ocultarFormulario()">Ocultar Formulario</button>
+            </div>
+        </div>
+    </center>
+
+    <div id="formulario-container" style="display:none;">
+        <div class="container">
+            <h1>Formulario de Usuario</h1>
+            <form action="/guardar_usuario" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" required pattern=".*\S+.*"><br>
+
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario" required pattern=".*\S+.*"><br>
+
+                <label for="clave">Clave:</label>
+                <input type="password" name="clave" required pattern=".*\S+.*"><br>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" required pattern=".*\S+.*"><br>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" name="telefono" required pattern=".*\S+.*"><br>
+
+                <input type="submit" value="Guardar">
+            </form>
+        </div>
+    </div>
+
+    <center>
+        <div class="container1">
+            <input type="text" id="busqueda" placeholder="Buscar Usuario..." oninput="filtrarTabla()">
+            <table id="tabla-usuarios" border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario[0] }}</td>
+                    <td>{{ usuario[1] }}</td>
+                    <td>{{ usuario[2] }}</td>
+                    <td>{{ usuario[3] }}</td>
+                    <td>{{ usuario[4] }}</td>
+                    <td>
+                        <form action="/eliminar_usuario" method="post" style="display: inline;">
+                            <input type="hidden" name="id_usuario" value="{{ usuario[0] }}">
+                            <button type="submit" class="eliminar-button">Eliminar</button>
+                        </form>
+                        <form action="/modificar_usuario" method="get" style="display: inline;">
+                            <input type="hidden" name="id_usuario" value="{{ usuario[0] }}">
+                            <button type="submit" class="modificar-button">Modificar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+
+    <script>
+        function mostrarFormulario() {
+            var formularioContainer = document.getElementById("formulario-container");
+            formularioContainer.style.display = "block";
+        }
+
+        function ocultarFormulario() {
+            var formularioContainer = document.getElementById("formulario-container");
+            formularioContainer.style.display = "none";
+        }
+
+        function filtrarTabla() {
+            var input, filtro, tabla, filas, celdas, i, j;
+            input = document.getElementById("busqueda");
+            filtro = input.value.toUpperCase();
+            tabla = document.getElementById("tabla-usuarios");
+            filas = tabla.getElementsByTagName("tr");
+
+            for (i = 1; i < filas.length; i++) {
+                celdas = filas[i].getElementsByTagName("td");
+                var mostrarFila = false;
+                for (j = 0; j < celdas.length; j++) {
+                    if (celdas[j]) {
+                        if (celdas[j].innerHTML.toUpperCase().indexOf(filtro) > -1) {
+                            mostrarFila = true;
+                            break;
+                        }
+                    }
+                }
+                filas[i].style.display = mostrarFila ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>

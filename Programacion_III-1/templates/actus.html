@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nombre de la Empresa - Inicio</title>
+    <style>
+                body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin: 10px;
+    padding: 8px 12px; /* Añade un poco de relleno a los enlaces para mejorar la usabilidad */
+    border-radius: 5px; /* Agrega bordes redondeados para un aspecto más agradable */
+    transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+}
+
+nav a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el ratón sobre los enlaces */
+}
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega sombra para resaltar el contenedor */
+    border-radius: 8px; /* Agrega bordes redondeados para un aspecto más moderno */
+    transition: box-shadow 0.3s ease; /* Agrega una transición suave a la sombra */
+}
+
+.container:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el ratón sobre el contenedor */
+}
+
+.button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .button:hover {
+        background-color: #45a049;
+    }
+    
+ 
+
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #333; /* Green */
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #444; /* Darker Green */
+        }
+
+        .popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+.update-container {
+  border: 1px solid #ddd;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.update-container:hover {
+  border-color: #555;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-content {
+  display: none;
+}
+
+/* Estilo base para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo del contenido del modal */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    transform: scale(0.8); /* Inicialmente, escala al 80% para la animación de pop */
+    animation: popIn 0.3s ease-out forwards; /* Agregamos una animación de pop */
+}
+
+/* Estilo adicional para una transición suave al mostrar/ocultar el modal */
+.modal.show {
+    display: flex;
+}
+
+/* Animación de pop */
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>UI Freund System v1.1</h1>
+    </header>
+
+    <nav>
+        <a href="inicio">Inicio 🏠</a>
+        <a href="#" id="administrarDatos">Administrar datos 🛠️</a>
+    
+      
+    </nav>
+    
+ 
+    <div class="container">
+
+      
+   
+      <div class="update-container" onclick="toggleUpdate('v15')"> 
+        <h3>Versión 1.x (Proximamente)</h3>
+        <div class="update-content" id="v15">
+          <p>Contenido de la versión 1.X...</p>
+        </div>
+      </div>
+
+
+      
+      
+      <div class="update-container" onclick="toggleUpdate('v11')">
+        <h3>Versión 0.1.5b</h3>
+        <div class="update-content" id="v11">
+          <p>Versión 0.1.5b (UI Freund System) </p>
+          <p>Version lanzada el 14 de noviembre de 2023</p>
+          <p>1. CRUD completamente funcional </p>
+          <p>2. Algunos formularios toman datos de otras tabla para una seleccion más facil </p>
+          <p>3. Se han retocado los diseños de todos los formularios.</p>
+          <p>4. la barra de menu fue actualizada. </p>
+          <p>5. El sistema no es tolerante a errores.</p>
+          <p>6. Se agrego la pestaña Actualizaciones.</p>
+          <p>7. Se agrego la pestaña Seguridad, donde puedes ver las camaras de local e intercambiar entre ellas.</p>
+          
+        
+        </div>
+      </div>
+
+
+      
+      <div class="update-container" onclick="toggleUpdate('v10')">
+        <h3>Versión 0.1.0b</h3>
+        <div class="update-content" id="v10">
+          <p> Version 0.1.0 beta (UI Freund)</p>
+
+          <p> Version lanzada el dia 13 de octubre de 2023, se implemento el crud (opcion update no funcionando), </p>
+          <p> ahora puedes visualizar los datos ingresados en sus respectivas tablas en la base de datos, por medio de la tabla, en la cual </p>
+          <p> puedes hacer busqueda interactiva de todo lo que este agregado en segun que formulario estes. </p>
+        </div>
+      </div>
+
+
+
+      
+      <div class="update-container" onclick="toggleUpdate('v01a')">
+        <h3>Versión 0.1.0a</h3>
+        <div class="update-content" id="v01a">
+          <p>Versión 0.1.0 alpha (UI GO) </p>
+
+          <p>Version lanzada el 05 de octubre de 2023, se implemento una base de datos MySQL, se agregaron en los formularios,</p>
+          <p>tablas para la visualizacion de datos, que de momento no muestra datos.</p>
+        </div>
+      </div>
+      
+      <div class="update-container" onclick="toggleUpdate('v050b')">
+        <h3>Versión 0.0.1b</h3>
+        <div class="update-content" id="v050b">
+          <p>Versión 0.0.1 beta (UI LIGHT) </p>
+
+          <p>Este versión fue lanzada el 30 de septiembre de 2023, se integro el funcionamiento en base al lenguaje python,</p>
+          <p>agregando los formularios para agregar cliente, empleado o proveedor, estos no tienen ninguna funcionalidad.</p>
+        </div>
+      </div>
+      
+      <div class="update-container" onclick="toggleUpdate('v010b')">
+        <h3>Versión 0.0.1pA</h3>
+        <div class="update-content" id="v010b">
+          <p>Versión 0.0.1 pre-Alpha (UI POP) </p>
+
+          <p>Este versión fue la primera en lanzarse el 22 de septiembre de 2023, desarollada simplemente con lenguaje HTML,</p>
+          <p>es totalmente funcional con respecto a la navegacion de formulario en formulario como: Inicio, Clientes y Empleados.</p>
+
+        </div>
+      </div>
+      
+       
+       
+    </div>
+
+
+  
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <p>¿Quieres ir a la página de administración de datos?</p>
+    <button onclick="irAPagina()">Sí</button>
+    <button onclick="cerrarPopup()">No</button>
+  </div>
+</div>
+    
+
+    
+    <center>
+        <div class="container">
+          <button onclick="mostrarModal()">Verificar versión del Sistema</button>
+
+         
+    
+    </div>
+    </center>
+    <div id="miModal" class="modal">
+      <div class="modal-content">
+          <p>Version actual del Sistema (UI Freund )</p>
+          <p>V 0.1.5b - 141123noV</p>
+          <button onclick="cerrarModal()">Aceptar</button>
+      </div>
+  </div>
+
+    
+    <script>
+
+function mostrarModal() {
+        document.getElementById('miModal').style.display = 'flex';
+    }
+
+    // Función para cerrar la pantalla emergente
+    function cerrarModal() {
+        document.getElementById('miModal').style.display = 'none';
+    }
+
+document.getElementById('administrarDatos').addEventListener('click', function() {
+  document.getElementById('popup').style.display = 'flex';
+});
+
+function irAPagina() {
+  window.location.href = 'login1'; // Cambia 'login1' por la URL a la que quieres redirigir.
+}
+
+function cerrarPopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+function toggleUpdate(version) {
+    var content = document.getElementById(version);
+    if (content.style.display === "none" || content.style.display === "") {
+      content.style.display = "block";
+    } else {
+      content.style.display = "none";
+    }
+  }
+
+
+    </script>
+</body>
+</html>
